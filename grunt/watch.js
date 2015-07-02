@@ -3,7 +3,7 @@ module.exports = function(grunt) {
         'watch',
         {
             unit: {
-                files: ['./**/*.js'],
+                files: ['./admin/**/*.js', './worker/**/*.js'],
                 tasks: ['test']
             }
         }
