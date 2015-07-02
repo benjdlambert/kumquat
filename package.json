@@ -15,5 +15,14 @@
   "bugs": {
     "url": "https://github.com/bbc/kumquat/issues"
   },
-  "homepage": "https://github.com/bbc/kumquat"
+  "homepage": "https://github.com/bbc/kumquat",
+  "devDependencies": {
+    "bluebird": "^2.9.30",
+    "grunt": "^0.4.5"
+  },
+  "dependencies": {
+    "express": "^4.13.0",
+    "ioredis": "^1.5.7",
+    "webdriverio": "^3.0.0"
+  }
 }
