@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 0"
+    "test": "grunt test"
   },
   "repository": {
     "type": "git",
@@ -18,7 +18,11 @@
   "homepage": "https://github.com/bbc/kumquat",
   "devDependencies": {
     "bluebird": "^2.9.30",
-    "grunt": "^0.4.5"
+    "grunt": "^0.4.5",
+    "grunt-contrib-jshint": "^0.11.2",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-jasmine": "bbc-sport/grunt-jasmine",
+    "jit-grunt": "^0.9.1"
   },
   "dependencies": {
     "express": "^4.13.0",
