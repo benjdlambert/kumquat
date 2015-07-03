@@ -29,6 +29,7 @@
     "express": "^4.13.0",
     "express-handlebars": "^2.0.1",
     "ioredis": "^1.5.7",
-    "webdriverio": "^3.0.0"
+    "webdriverio": "^3.0.0",
+    "hbs": "^2.7.0"
   }
 }
