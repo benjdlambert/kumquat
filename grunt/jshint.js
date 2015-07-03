@@ -6,7 +6,7 @@ module.exports = function(grunt) {
             options: {
                 jshintrc: true
             },
-            js: ['./admin/**/*.js', './worker/**/*.js']
+            js: ['./admin/**/*.js', './worker/**/*.js', './common/**/*.js']
         }
     );
 };
