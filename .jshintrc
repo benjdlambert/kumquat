@@ -64,7 +64,8 @@
       "describe": true,
       "it": true,
       "expect": true,
-      "beforeEach": true
+      "beforeEach": true,
+      "spyOn": true
   },
 
   "predef": ["-Promise"]
