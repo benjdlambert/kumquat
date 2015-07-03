@@ -1,26 +1,37 @@
 var mongoose = require('mongoose'),
     Promise = require('bluebird'),
-    Schema = mongoose.Schema;
+    Schema = mongoose.Schema,
+    ErrorController = require('./error')
 
 var Suite = require('../../../common/models/suite');
 
 exports.action = function(request, response) {
     'use strict';
-    var suites = [];
+    var suiteId = request.params.id,
+    	suite;
 
 	Promise.promisifyAll(mongoose);
 	mongoose.connectAsync('mongodb://localhost/kumquat')
 	    .bind({})
 	    .then(function() {
-	    	return Suite.findAsync({});
+	    	var data;
+	    	try {
+	    		data = Suite.findByIdAsync(suiteId);
+	    	} catch(e) {
+	    		console.log(e)
+	    	}
+	    	return data;
 	    })
 	    .then(function(data) {
-    		suites = data;
+    		suite = data;
 		})
 	    .then(function() {
 	        return mongoose.disconnectAsync();
 	    })
 	    .then(function() {
-		    response.render('index', {suites: suites});
+	    	if(suite.length !== 0) {
+	    		return response.render('suite', {suite: suite});
+	    	}
+	    	ErrorController.action(request, response, {message: "That suite could not be found"});
 	    });
 };
