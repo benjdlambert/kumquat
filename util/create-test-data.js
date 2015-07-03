@@ -18,24 +18,23 @@ var Suite = require('../common/models/suite'),
             });
         })
         .then(function(returnedSpec) {
-            return Test.createAsync({
-                name: 'My first test',
-                description: 'This is my first test.. I like tests',
-                spec: returnedSpec
-            });
-        })
-        .then(function(returnedTest) {
-            this.test = returnedTest;
+            this.spec = returnedSpec;
             return TestRun.createAsync({
                 start: new Date().getTime() - 1000,
                 end: new Date().getTime(),
-                sucess: true,
-                test: returnedTest,
+                success: true,
                 percentage: 100
             });
         })
+        .then(function(testRun) {
+            return Test.createAsync({
+                name: 'My first test',
+                description: 'This is my first test.. I like tests',
+                spec: this.spec,
+                runs: [testRun]
+            });
+        })
         .then(function(returnedTest) {
-            this.testRun = returnedTest;
             return Suite.createAsync({
                 name: 'Suitest thing',
                 tests: [returnedTest]
