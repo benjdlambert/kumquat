@@ -19,6 +19,8 @@ var Suite = require('../common/models/suite'),
         })
         .then(function(returnedSpec) {
             this.spec = returnedSpec;
+
+            console.log('Spec id:', this.spec.id);
             return TestRun.createAsync({
                 start: new Date().getTime() - 1000,
                 end: new Date().getTime(),
@@ -27,6 +29,7 @@ var Suite = require('../common/models/suite'),
             });
         })
         .then(function(testRun) {
+            console.log('Test run id:', testRun.id);
             return Test.createAsync({
                 name: 'My first test',
                 description: 'This is my first test.. I like tests',
@@ -35,12 +38,14 @@ var Suite = require('../common/models/suite'),
             });
         })
         .then(function(returnedTest) {
+            console.log('Test id:', returnedTest.id);
             return Suite.createAsync({
                 name: 'Suitest thing',
                 tests: [returnedTest]
             });
         })
-        .then(function() {
+        .then(function(suite) {
+            console.log('Suite id:', suite.id)
             return mongoose.disconnectAsync();
         });
 })();
