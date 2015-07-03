@@ -21,5 +21,8 @@ exports.process = function(message) {
             this.testRun = testRun;
             this.test.runs.push(testRun);
             return this.test.saveAsync();
+        })
+        .then(function() {
+
         });
 };
