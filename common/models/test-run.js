@@ -5,7 +5,7 @@ var mongoose = require('mongoose'),
 var TestRun = new Schema({
     start: Date,
     end: Date,
-    sucess: Boolean,
+    success: Boolean,
     baseline: {
         data: Buffer,
         contentType: String

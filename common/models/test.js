@@ -20,10 +20,10 @@ var Test = new Schema({
         data: Buffer,
         contentType: String
     },
-    runs: {
+    runs: [{
         type: Schema.Types.ObjectId,
-        ref: 'TestRun'
-    }
+        ref: 'TestRun',
+    }]
 });
 
 Promise.promisifyAll(Test);
