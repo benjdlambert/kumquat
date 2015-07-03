@@ -13,11 +13,16 @@ var Test = new Schema({
     },
     spec: {
         type: Schema.Types.ObjectId,
-        ref: 'Spec'
+        ref: 'Spec',
+        required: true
     },
     baseline: {
         data: Buffer,
         contentType: String
+    },
+    runs: {
+        type: Schema.Types.ObjectId,
+        ref: 'TestRun'
     }
 });
 

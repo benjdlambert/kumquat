@@ -10,7 +10,8 @@ var Suite = new Schema({
     tests: [
         {
             type: Schema.Types.ObjectId,
-            ref: 'Test'
+            ref: 'Test',
+            required: true
         }
     ]
 });
