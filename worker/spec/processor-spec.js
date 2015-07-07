@@ -18,7 +18,7 @@ describe('Processor', function() {
     it('should create a test run for a message', function(done) {
         createTest()
             .tap(function(message){
-                this.message = message
+                this.message = message;
                 spyOn(messageRetriever, 'getMessage').and.returnValue(
                     Promise.resolve({ id: message.id })
                 );
@@ -34,6 +34,10 @@ describe('Processor', function() {
                 done();
             });
     });
+
+    it('should fail if sites are different');
+
+    it('should not fail if two sites are not different');
 
     function createTest() {
         return mongoose.connectAsync('mongodb://localhost/kumquat')
