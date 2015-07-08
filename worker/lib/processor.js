@@ -1,6 +1,7 @@
 var TestRun = require('../../common/models/test-run'),
     Test = require('../../common/models/test'),
     driver = require('./driver'),
+    Promise = require('bluebird'),
     gm = require('gm');
 
 function runTest() {
