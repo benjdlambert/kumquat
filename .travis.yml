@@ -4,3 +4,7 @@ node_js:
 services: mongodb
 before_install:
 - sudo apt-get install graphicsmagick
+- npm install selenium-standalone --save
+- node_modules/.bin/selenium-standalone install
+- node_modules/.bin/selenium-standalone start &
+- sleep 5

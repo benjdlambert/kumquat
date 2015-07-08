@@ -13,8 +13,8 @@ var Suite = require('../common/models/suite'),
         .bind({})
         .then(function() {
             return Spec.createAsync({
-                selector: 'div#some-component.hello',
-                url: 'http://www.bbc.co.uk/sport/0/'
+                selector: '#live-first-story',
+                url: 'http://bbc.co.uk/sport'
             });
         })
         .then(function(returnedSpec) {
