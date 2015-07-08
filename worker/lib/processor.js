@@ -1,5 +1,44 @@
 var TestRun = require('../../common/models/test-run'),
-    Test = require('../../common/models/test');
+    Test = require('../../common/models/test'),
+    driver = require('./driver'),
+    gm = require('gm');
+
+function runTest() {
+    var client = driver.getInstance();
+    var page = client.url(this.test.spec.url)
+        .click('#bbccookies-continue-button')
+        .timeoutsImplicitWait(1000),
+        boundingRect;
+
+    return page.execute(function(selector) {
+            return document
+                .querySelector(selector)
+                .getBoundingClientRect();
+        }, this.test.spec.selector)
+        .then(function(scriptResponse) {
+            boundingRect = scriptResponse.value;
+            return page.saveScreenshot();
+        })
+        .then(function(screenshotResponse) {
+            return new Promise(function(resolve) {
+                gm(screenshotResponse)
+                  .crop(
+                      boundingRect.width,
+                      boundingRect.height,
+                      boundingRect.left,
+                      boundingRect.top
+                  )
+                  .toBuffer('PNG', function(err, buffer){
+                      resolve(buffer);
+                  });
+            });
+        })
+        .then(console.log);
+}
+
+function stripArray(response) {
+    return response[0];
+}
 
 exports.process = function(message) {
     'use strict';
@@ -22,7 +61,6 @@ exports.process = function(message) {
             this.test.runs.push(testRun);
             return this.test.saveAsync();
         })
-        .then(function() {
-
-        });
+        .then(stripArray)
+        .then(runTest);
 };
