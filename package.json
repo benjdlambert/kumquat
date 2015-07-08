@@ -33,6 +33,8 @@
     "mongoose": "^4.0.6",
     "nightmare": "^1.8.2",
     "nightmare-screenshot": "0.0.1",
+    "tmp": "0.0.26",
+    "webdriverio": "^3.0.5",
     "winston": "^1.0.1"
   }
 }
