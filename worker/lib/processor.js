@@ -5,9 +5,7 @@ var TestRun = require('../../common/models/test-run'),
 
 function runTest() {
     var client = driver.getInstance();
-    var page = client.url(this.test.spec.url)
-        .click('#bbccookies-continue-button')
-        .timeoutsImplicitWait(1000),
+    var page = client.url(this.test.spec.url),
         boundingRect;
 
     return page.execute(function(selector) {
@@ -28,9 +26,8 @@ function runTest() {
                       boundingRect.left,
                       boundingRect.top
                   )
-                  .toBuffer('PNG', function(err, buffer){
-                      resolve(buffer);
-                  });
+                  .write('/Users/ben/Desktop/newoutput-chrome.png', resolve);
+
             });
         })
         .then(console.log);
