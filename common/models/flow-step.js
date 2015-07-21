@@ -12,9 +12,17 @@ var FlowStep = new Schema({
     description: {
         type: String,
         required: true
+    },
+    type: {
+        type: String,
+        required: true
+    },
+    data: {
+        type: Schema.Types.Mixed,
+        required: true
     }
 });
 
 Promise.promisifyAll(FlowStep);
-exports.model = mongoose.model('FlowStep', FlowStep)
-exports.raw = FlowStep;
+
+module.exports = mongoose.model('FlowStep', FlowStep)
