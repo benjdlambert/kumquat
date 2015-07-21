@@ -30,7 +30,6 @@
     "express-handlebars": "^2.0.1",
     "gm": "^1.18.1",
     "mongoose": "^4.0.6",
-    "mongoose-schema-extend": "^0.1.7",
     "webdriverio": "^3.0.5",
     "winston": "^1.0.1"
   }
