@@ -3,7 +3,7 @@ var mongoose = require('mongoose'),
     FlowStep = require('./flow-step');
 
 var Action = FlowStep.extend({});
-
 Promise.promisifyAll(Action);
 
-module.exports = mongoose.model('Action', Action);
+exports.model = mongoose.model('Action', Action)
+exports.raw = Action;

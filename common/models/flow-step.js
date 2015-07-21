@@ -16,5 +16,5 @@ var FlowStep = new Schema({
 });
 
 Promise.promisifyAll(FlowStep);
-mongoose.model('FlowStep', FlowStep)
-module.exports = FlowStep;
+exports.model = mongoose.model('FlowStep', FlowStep)
+exports.raw = FlowStep;

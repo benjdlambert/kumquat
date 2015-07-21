@@ -27,4 +27,5 @@ var Suite = new Schema({
 
 Promise.promisifyAll(Suite);
 
-module.exports = mongoose.model('Suite', Suite);
+exports.model = mongoose.model('Suite', Suite);
+exports.raw = Suite;

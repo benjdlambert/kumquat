@@ -21,4 +21,5 @@ var Test = new Schema({
 
 Promise.promisifyAll(Test);
 
-module.exports = mongoose.model('Test', Test);
+exports.model = mongoose.model('Test', Test);
+exports.raw = Test;
