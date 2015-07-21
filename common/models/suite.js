@@ -3,10 +3,20 @@ var mongoose = require('mongoose'),
     Schema = mongoose.Schema;
 
 var Suite = new Schema({
-    name: {
+    title: {
         type: String,
         required: true
     },
+    description: {
+        type: String,
+        required: true
+    },
+    runs: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'Run'
+        }
+    ],
     tests: [
         {
             type: Schema.Types.ObjectId,
