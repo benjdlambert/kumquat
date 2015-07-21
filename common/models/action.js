@@ -2,9 +2,7 @@ var mongoose = require('mongoose'),
     Promise = require('bluebird'),
     FlowStep = require('./flow-step');
 
-require('extend');
-
-var Action = new FlowStep.extend({});
+var Action = FlowStep.extend({});
 
 Promise.promisifyAll(Action);
 

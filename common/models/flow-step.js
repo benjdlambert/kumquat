@@ -2,6 +2,8 @@ var mongoose = require('mongoose'),
     Promise = require('bluebird'),
     Schema = mongoose.Schema;
 
+require('mongoose-schema-extend');
+
 var FlowStep = new Schema({
     title: {
         type: String,
@@ -14,5 +16,5 @@ var FlowStep = new Schema({
 });
 
 Promise.promisifyAll(FlowStep);
-
-module.exports = mongoose.model('FlowStep', FlowStep);
+mongoose.model('FlowStep', FlowStep)
+module.exports = FlowStep;
