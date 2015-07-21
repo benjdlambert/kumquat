@@ -2,8 +2,6 @@ var mongoose = require('mongoose'),
     Promise = require('bluebird'),
     Schema = mongoose.Schema;
 
-require('mongoose-schema-extend');
-
 var FlowStep = new Schema({
     title: {
         type: String,
@@ -18,11 +16,37 @@ var FlowStep = new Schema({
         required: true
     },
     data: {
-        type: Schema.Types.Mixed,
-        required: true
+        actionType: {
+            type: String
+        },
+        assertionType: {
+            type: String
+        },
+        selector: {
+            type: String
+        },
+        timeout: {
+            type: Number
+        },
+        x: {
+            type: Number
+        },
+        y: {
+            type: Number
+        }
+
     }
 });
 
 Promise.promisifyAll(FlowStep);
 
-module.exports = mongoose.model('FlowStep', FlowStep)
+var model = mongoose.model('FlowStep', FlowStep);
+
+model.path('data.actionType').validate(function(value){
+    return /click|scroll|resize|input|wait|visit/i.test(value);
+});
+model.path('data.assertionType').validate(function(value){
+    return /screenshot/.test(value);
+});
+
+module.exports = model;
