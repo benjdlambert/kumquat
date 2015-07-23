@@ -33,8 +33,10 @@ var FlowStep = new Schema({
         },
         y: {
             type: Number
+        },
+        url: {
+            type: String
         }
-
     }
 });
 
@@ -44,7 +46,7 @@ FlowStep.path('data.actionType').validate(function(value){
     return /click|scroll|resize|input|wait|visit/i.test(value);
 });
 FlowStep.path('data.assertionType').validate(function(value){
-    return /screenshot/.test(value);
+    return /screenshot/.test(value) || value === undefined;
 });
 
 module.exports = mongoose.model('FlowStep', FlowStep);
