@@ -47,4 +47,4 @@ FlowStep.path('data.assertionType').validate(function(value){
     return /screenshot/.test(value);
 });
 
-module.exports = mongoose.model('FlowStep', FlowStep;
+module.exports = mongoose.model('FlowStep', FlowStep);
