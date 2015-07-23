@@ -10,7 +10,7 @@ describe('Actor Module', function() {
             url: jasmine.createSpy().and.returnValue(Promise.resolve())
         };
         Actor = require('../lib/actor');
-        actor = Actor(mockWebdriver);
+        actor = new Actor(mockWebdriver);
     });
 
     it('should visit the correct url when visit is the action', function(done) {
@@ -21,4 +21,9 @@ describe('Actor Module', function() {
                 done();
             });
     });
+
+    it(
+        'should click a selector when click is the ' +
+        'action and selector is present'
+    );
 });

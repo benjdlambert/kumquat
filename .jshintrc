@@ -63,6 +63,7 @@
       "xit": true,
       "expect": true,
       "beforeEach": true,
+      "afterEach": true,
       "spyOn": true,
       "jasmine": true
   },
