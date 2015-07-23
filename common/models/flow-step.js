@@ -40,13 +40,11 @@ var FlowStep = new Schema({
 
 Promise.promisifyAll(FlowStep);
 
-var model = mongoose.model('FlowStep', FlowStep);
-
-model.path('data.actionType').validate(function(value){
+FlowStep.path('data.actionType').validate(function(value){
     return /click|scroll|resize|input|wait|visit/i.test(value);
 });
-model.path('data.assertionType').validate(function(value){
+FlowStep.path('data.assertionType').validate(function(value){
     return /screenshot/.test(value);
 });
 
-module.exports = model;
+module.exports = mongoose.model('FlowStep', FlowStep;
