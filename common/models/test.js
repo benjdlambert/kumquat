@@ -16,6 +16,12 @@ var Test = new Schema({
             type: Schema.Types.ObjectId,
             ref: 'FlowStep'
         }
+    ],
+    runs: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'Run'
+        }
     ]
 });
 
