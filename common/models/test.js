@@ -11,19 +11,12 @@ var Test = new Schema({
         type: String,
         required: false
     },
-    spec: {
-        type: Schema.Types.ObjectId,
-        ref: 'Spec',
-        required: true
-    },
-    baseline: {
-        data: Buffer,
-        contentType: String
-    },
-    runs: [{
-        type: Schema.Types.ObjectId,
-        ref: 'TestRun',
-    }]
+    flow: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'FlowStep'
+        }
+    ]
 });
 
 Promise.promisifyAll(Test);
