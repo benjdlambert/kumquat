@@ -27,10 +27,20 @@ function setupStub() {
     return new Promise(function(resolve) {
         _this.stubby.delete(function() {
             Promise.all([
-                createStub.call(_this, '/' + _this.activeStub + '/style.css', _this.stylesheet, 'text/css'),
-                createStub.call(_this, '/' + _this.activeStub + '/index.html', _this.currentPage, 'text/html')
+                createStub.call(
+                    _this,
+                    '/' + _this.activeStub + '/style.css',
+                    _this.stylesheet,
+                    'text/css'
+                 ),
+                createStub.call(
+                    _this,
+                    '/' + _this.activeStub + '/index.html',
+                    _this.currentPage,
+                    'text/html'
+                )
             ]).then(resolve);
-        })
+        });
     });
 }
 
@@ -42,7 +52,7 @@ exports.init = function() {
     this.stubby = new Stubby();
     Promise.promisifyAll(this.stubby);
     return this.stubby.startAsync();
-}
+};
 
 /**
  * Sets the current active stub, and sets baseline.html as the current
@@ -64,4 +74,4 @@ exports.setActiveStub = function(stub) {
 exports.switch = function() {
     this.currentPage = getFileFromStub.call(this, 'current.html');
     return setupStub.call(this);
-}
+};
