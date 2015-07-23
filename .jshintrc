@@ -38,7 +38,7 @@
   "maxlen": 80,
 
   // Require capitalized names for constructor functions.
-  "newcap": true,
+  "newcap": false,
 
   // Enforce use of single quotation marks for strings.
   "quotmark": "single",
@@ -62,7 +62,8 @@
       "it": true,
       "expect": true,
       "beforeEach": true,
-      "spyOn": true
+      "spyOn": true,
+      "jasmine": true
   },
 
   "predef": ["-Promise"]
