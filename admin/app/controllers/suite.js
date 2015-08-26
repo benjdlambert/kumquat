@@ -30,7 +30,7 @@ exports.action = function(request, response) {
 	    })
 	    .then(function() {
 	    	if(suite.length !== 0) {
-	    		return response.render('suite', {suite: suite});
+				return response.render('suite', {suite: suite});
 	    	}
 	    	ErrorController.action(request, response, {message: "That suite could not be found"});
 	    });

@@ -28,6 +28,8 @@
   "dependencies": {
     "express": "^4.13.0",
     "express-handlebars": "^2.0.1",
+    "body-parser": "1.13.x",
+    "express-form": "x.x.x",
     "ioredis": "^1.5.7",
     "webdriverio": "^3.0.0",
     "hbs": "^2.7.0",
